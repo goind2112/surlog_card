@@ -59,12 +59,31 @@
   <a href="https://apps.apple.com/app/6745259537" class="btn">Download on the App Store</a>
 
   <div class="links">
-    <p>Contact us: <a href="mailto:surlogAssistant@outlook.com">surlogAssistant@outlook.com</a></p>
-    <a href="https://goind2112.github.io/surlog_card/en/privacy_policy">Privacy
-      Policy</a></p>
-    <a href="https://goind2112.github.io/surlog_card/en/terms_of_use">Terms of
-      Use</a></p>
-  </div>
+    <div class="links">
+      <p>Contact us:
+        <span id="copyEmailBtn" style="color:#0070f3; cursor:pointer; text-decoration:underline;">
+          surlogAssistant@outlook.com
+        </span>
+      </p>
+
+      <script>
+        const btn = document.getElementById('copyEmailBtn');
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText('surlogAssistant@outlook.com')
+            .then(() => {
+              const originalText = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(() => btn.textContent = originalText, 2000);
+            })
+            .catch(err => console.error('Ошибка копирования: ', err));
+        });
+      </script>
+
+      <a href="https://goind2112.github.io/surlog_card/en/privacy_policy">Privacy
+        Policy</a></p>
+      <a href="https://goind2112.github.io/surlog_card/en/terms_of_use">Terms of
+        Use</a></p>
+    </div>
 </body>
 
 </html>

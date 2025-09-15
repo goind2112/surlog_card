@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,16 @@
       background-color: #000000;
       color: #ffffff;
     }
+
     img {
       max-width: 200px;
       margin: 20px auto;
     }
+
     h1 {
       color: #333;
     }
+
     .btn {
       display: inline-block;
       margin: 15px;
@@ -29,10 +33,12 @@
       text-decoration: none;
       border-radius: 8px;
     }
+
     .links {
       margin-top: 20px;
       font-size: 14px;
     }
+
     .links a {
       color: #0070f3;
       text-decoration: none;
@@ -40,22 +46,42 @@
     }
   </style>
 </head>
+
 <body>
   <div style="position:absolute; top:10px; right:10px;">
     <a href="https://goind2112.github.io/surlog_card/ru/">RU</a> |
     <a href="https://goind2112.github.io/surlog_card/en/">EN</a>
   </div>
-  
+
   <img src="logo.png" alt="App Logo">
   <p>Добро пожаловать! 🚀</p>
 
   <a href="https://apps.apple.com/app/6745259537" class="btn">Скачать в App Store</a>
 
   <div class="links">
-    <p>Связаться c нами: <a href="mailto:surlogAssistant@outlook.com">surlogAssistant@outlook.com</a></p>
+    <p>Связаться с нами:
+      <span id="copyEmailBtn" style="color:#0070f3; cursor:pointer; text-decoration:underline;">
+        surlogAssistant@outlook.com
+      </span>
+    </p>
+
+    <script>
+      const btn = document.getElementById('copyEmailBtn');
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText('surlogAssistant@outlook.com')
+          .then(() => {
+            const originalText = btn.textContent;
+            btn.textContent = 'Скопировано!';
+            setTimeout(() => btn.textContent = originalText, 2000);
+          })
+          .catch(err => console.error('Ошибка копирования: ', err));
+      });
+    </script>
+
+
     <a href="https://goind2112.github.io/surlog_card/ru/privacy_policy">Политика конфиденциальности</a></p>
     <a href="https://goind2112.github.io/surlog_card/ru/terms_of_use">Правила использования</a></p>
   </div>
 </body>
-</html>
 
+</html>
